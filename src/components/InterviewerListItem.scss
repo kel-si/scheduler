@@ -33,5 +33,16 @@
     &:hover {
       @include button-active--opacity;
     }
+
+    //InterviewerList.jsx 
+    &__header {
+      color: $white;
+      margin-bottom: 0.5rem;
+    }
+  
+    &__list {
+      display: flex;
+      flex-flow: row wrap;
+    }
   }
 }
