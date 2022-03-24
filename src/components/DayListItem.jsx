@@ -19,7 +19,7 @@ export default function DayListItem(props) {
   const availability = formatSpots(props.spots);
 
   return (
-    <li onClick={() => props.setDay(props.name)} className={dayClass}>
+    <li onClick={props.setDay} className={dayClass}>
       <h2 className="text--regular" >{props.name}</h2>
       <h3 className="text--light" >{props.spots} spots remaining</h3>
     </li>
