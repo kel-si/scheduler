@@ -5,8 +5,5 @@ export function getAppointmentsForDay(state, day) {
     return [];
   }
 
-  const data = arr.appointments.map(
-    (appointment) => state.appointments[appointment]
-  );
-  return data;
+  return arr.appointments.map((appointment) => state.appointments[appointment]);
 }
