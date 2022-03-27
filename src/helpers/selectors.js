@@ -7,3 +7,13 @@ export function getAppointmentsForDay(state, day) {
 
   return arr.appointments.map((appointment) => state.appointments[appointment]);
 }
+
+export function getInterview(state, interview) {
+  if (!interview) {
+    return null;
+  }
+  const copyInterview = Object.assign({}, interview);
+  const interviewerInfo = state.interviewers[interview.interviewer];
+  copyInterview.interviewer = interviewerInfo;
+  return copyInterview;
+}
