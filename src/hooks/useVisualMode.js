@@ -13,10 +13,13 @@ export default function useVisualMode(initial) {
   //transition back to previous mode
   function back() {
     let historyCopy = history.slice(0);
-    const prevMode = historyCopy.pop();
-    setMode(prevMode);
-    setHistory(historyCopy);
-    return mode;
+    if (historyCopy.length >= 1) {
+      const prevMode = historyCopy.pop();
+      setMode(prevMode);
+      setHistory(historyCopy);
+      return mode;
+    }
+    return historyCopy;
   }
 
   return { mode, transition, back };
