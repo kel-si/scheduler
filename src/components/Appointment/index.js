@@ -4,6 +4,7 @@ import Header from "./Header";
 import Show from "./Show";
 import Empty from "./Empty";
 import useVisualMode from "hooks/useVisualMode";
+import Form from "./Form";
 
 export default function Appointment(props) {
   const EMPTY = "EMPTY";
@@ -19,14 +20,6 @@ export default function Appointment(props) {
         {props.time ? `${props.time}` : "No Appointments"}
       </article>
       <header>
-        {/* {props.interview ? (
-          <Show
-            student={props.interview.student}
-            interviewer={props.interview.interviewer.name}
-          />
-        ) : (
-          <Empty />
-        )} */}
         {mode === EMPTY && <Empty onAdd={() => transition(CREATE)} />}
         {mode === SHOW && (
           <Show
@@ -34,6 +27,7 @@ export default function Appointment(props) {
             interview={props.interview.interviewer}
           />
         )}
+        {mode === CREATE && <Form interviewers={[]} onCancel={back} />}
       </header>
     </>
   );
