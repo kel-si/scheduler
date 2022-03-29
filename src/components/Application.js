@@ -67,10 +67,11 @@ export default function Application(props) {
               id={appointment.id}
               time={appointment.time}
               interview={interview}
+              interviewers={dailyInterviewers}
             />
           );
         })}
-        <Appointment key="last" time="5pm" />
+        <Appointment key="last" time="5pm" interviewers={dailyInterviewers} />
       </section>
     </main>
   );
