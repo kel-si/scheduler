@@ -23,6 +23,10 @@ export default function Application(props) {
 
   const setDay = (day) => setState({ ...state, day });
 
+  function bookInterview(id, interview) {
+    console.log(id, interview);
+  }
+
   useEffect(() => {
     axios
       .all([
@@ -68,10 +72,16 @@ export default function Application(props) {
               time={appointment.time}
               interview={interview}
               interviewers={dailyInterviewers}
+              bookInterview={bookInterview}
             />
           );
         })}
-        <Appointment key="last" time="5pm" interviewers={dailyInterviewers} />
+        <Appointment
+          key="last"
+          time="5pm"
+          interviewers={dailyInterviewers}
+          bookInterview={bookInterview}
+        />
       </section>
     </main>
   );
