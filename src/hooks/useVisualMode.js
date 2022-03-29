@@ -1,4 +1,3 @@
-import { FALSE } from "node-sass";
 import { useState } from "react";
 
 export default function useVisualMode(initial) {
