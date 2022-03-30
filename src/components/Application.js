@@ -44,6 +44,7 @@ export default function Application(props) {
 
     console.log(id, interview);
   }
+  function cancelInterview(id) {}
 
   useEffect(() => {
     axios
