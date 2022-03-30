@@ -1,6 +1,6 @@
 import React from "react";
 import "./styles.scss";
-// import Header from "./Header";
+import Header from "./Header";
 import Show from "./Show";
 import Empty from "./Empty";
 import useVisualMode from "hooks/useVisualMode";
@@ -19,33 +19,23 @@ export default function Appointment(props) {
       student: name,
       interviewer,
     };
-    props.bookInterview(props.id, interview);
-
-    transition(SHOW);
+    props.bookInterview(props.id, interview).then(() => transition(SHOW));
   }
 
   return (
-    <>
-      <article className="appointment">
-        {props.time ? `${props.time}` : "No Appointments"}
-      </article>
-      <header>
-        {mode === EMPTY && <Empty onAdd={() => transition(CREATE)} />}
-        {mode === SHOW && (
-          <Show
-            student={props.interview.student}
-            interview={props.interview.interviewer}
-            interviewer={props.interview.interviewer.name}
-          />
-        )}
-        {mode === CREATE && (
-          <Form
-            interviewers={props.interviewers}
-            onCancel={back}
-            onSave={save}
-          />
-        )}
-      </header>
-    </>
+    <article className="appointment">
+      <Header time={props.time} />
+      {mode === EMPTY && <Empty onAdd={() => transition(CREATE)} />}
+      {mode === SHOW && (
+        <Show
+          student={props.interview.student}
+          interview={props.interview.interviewer}
+          interviewer={props.interview.interviewer.name}
+        />
+      )}
+      {mode === CREATE && (
+        <Form interviewers={props.interviewers} onCancel={back} onSave={save} />
+      )}
+    </article>
   );
 }
