@@ -28,7 +28,7 @@ export default function Appointment(props) {
 
   const handleDelete = (id) => {
     transition(DELETING);
-    props.cancelInterview(id).then(() => transition(SHOW));
+    props.cancelInterview(id).then(() => transition(EMPTY));
   };
 
   return (
