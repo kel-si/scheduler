@@ -80,11 +80,9 @@ export default function useApplicationData() {
     for (const id of day.appointments) {
       const appointment = appointments[id];
       if (!appointment.interview) {
-        console.log("found one", appointment);
         spots++;
       }
     }
-    console.log("spots", spots);
     return spots;
   }
 
