@@ -2,7 +2,7 @@ import React from "react";
 import classNames from "classnames";
 import "components/DayListItem.scss";
 
-const formatSpots = (spots) => {
+function formatSpots(spots) {
   if (spots === 0) {
     return "no spots remaining";
   }
@@ -10,7 +10,7 @@ const formatSpots = (spots) => {
     return "1 spot remaining";
   }
   return `${spots} spots remaining`;
-};
+}
 
 export default function DayListItem(props) {
   const dayClass = classNames(
