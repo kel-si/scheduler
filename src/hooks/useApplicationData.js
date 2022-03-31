@@ -26,6 +26,7 @@ export default function useApplicationData() {
       setState({
         ...state,
         appointments,
+        days,
       })
     );
   }
@@ -44,6 +45,7 @@ export default function useApplicationData() {
       setState({
         ...state,
         appointments,
+        days,
       })
     );
   }
@@ -64,6 +66,30 @@ export default function useApplicationData() {
         }));
       });
   }, []);
+  const days = updateSpots(state, appointments, id);
+
+  function getSpotsForDay(day, appointments) {
+    let spots = 0;
+
+    // iterate the days appt ids
+    for (const id of day.appointments) {
+      const appointment = appointments[id];
+      if (!appointment.interview) {
+        spots++;
+      }
+    }
+    return spots;
+  }
+
+  function updateSpots(state, appointments, id) {
+    const dayObj = state.days.find((day) => day.name === state.day);
+
+    const spots = getSpotsForDay(dayObj, appointments);
+
+    const day = { ...dayObj, spots };
+
+    return state.days.map((d) => (d.name === state.day ? day : d));
+  }
 
   return { state, setDay, bookInterview, cancelInterview };
 }
