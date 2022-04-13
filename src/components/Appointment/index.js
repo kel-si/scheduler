@@ -76,10 +76,10 @@ export default function Appointment(props) {
         />
       )}
       {mode === ERROR_DELETE && (
-        <Error message="Failed to delete." onClick={() => handleDelete()} />
+        <Error message="Failed to delete." onClose={back} />
       )}
       {mode === ERROR_SAVE && (
-        <Error message="Failed to save." onClick={() => handleDelete()} />
+        <Error message="Failed to save." onClose={back} />
       )}
     </article>
   );
