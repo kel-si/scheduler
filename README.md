@@ -16,6 +16,9 @@ This is an app created for learning React. The Interview Scheduler is an app to 
 
 Install dependencies with `npm install`.
 
+Creating the DB:
+[Scheduler-Api](https://github.com/kel-si/scheduler-api)
+
 ## Running Webpack Development Server
 
 ```sh
